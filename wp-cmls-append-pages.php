@@ -8,7 +8,7 @@ namespace CUMULUS\Wordpress\AppendPages;
  * GitHub Plugin URI: https://github.com/cumulus-digital/wp-cmls-append-pages/
  * Primary Branch: main
  * Description: Append pages to the end of other pages.
- * Version: 0.0.1
+ * Version: 0.0.2
  * Author: vena
  * License: UNLICENSED
  */

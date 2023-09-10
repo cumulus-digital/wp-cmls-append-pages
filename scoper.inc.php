@@ -39,6 +39,7 @@ return [
 			] )
 			->notPath( \array_keys( $composer['require-dev'] ) )
 			->notPath( 'friendsofphp' )
+			->notPath( 'bin' )
 			->in( 'vendor' ),
 		Finder::create()->append( [
 			'composer.json',
@@ -49,8 +50,13 @@ return [
 	// Whitelists a list of files. Unlike the other whitelist related features, this one is about completely leaving
 	// a file untouched.
 	// Paths are relative to the configuration file unless if they are already absolute
+	/*
 	'files-whitelist' => [
 		//'src/a-whitelisted-file.php',
+	],
+	*/
+	'exclude-files' => [
+		'vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php',
 	],
 
 	// When scoping PHP files, there will be scenarios where some of the code being scoped indirectly references the
@@ -65,11 +71,13 @@ return [
 
 			// Fix TGMPA_Utils calls
 			if ( $filePath === __DIR__ . '/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php' ) {
+				/*
 				$contents = \str_replace(
 					"array('TGMPA_Utils',",
 					"array('{$prefix}\\TGMPA_Utils',",
 					$contents
 				);
+				*/
 			}
 
 			return $contents;
@@ -85,11 +93,13 @@ return [
 	// that this does not work with functions or constants neither with classes belonging to the global namespace.
 	//
 	// Fore more see https://github.com/humbug/php-scoper#whitelist
+	/*
 	'whitelist' => \array_merge( $wp_functions, $wp_consts, $wp_classes, [
 		// 'PHPUnit\Framework\TestCase',   // A specific class
 		// 'PHPUnit\Framework\*',          // The whole namespace
 		// '*',                            // Everything
 	] ),
+	*/
 
 	// If `true` then the user defined constants belonging to the global namespace will not be prefixed.
 	//

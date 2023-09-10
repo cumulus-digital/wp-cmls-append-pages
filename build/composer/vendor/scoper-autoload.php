@@ -4,8 +4,8 @@
 
 $loader = require_once __DIR__.'/autoload.php';
 
-// Aliases for the whitelisted classes. For more information see:
-// https://github.com/humbug/php-scoper/blob/master/README.md#class-whitelisting
+// Exposed classes. For more information see:
+// https://github.com/humbug/php-scoper/blob/master/docs/configuration.md#exposing-classes
 if (!class_exists('TGM_Plugin_Activation', false) && !interface_exists('TGM_Plugin_Activation', false) && !trait_exists('TGM_Plugin_Activation', false)) {
     spl_autoload_call('CUMULUS\Wordpress\AppendPages\TGM_Plugin_Activation');
 }
@@ -31,8 +31,8 @@ if (!class_exists('ComposerAutoloaderInit873a628d2476a3c46b6fb72854801612', fals
     spl_autoload_call('CUMULUS\Wordpress\AppendPages\ComposerAutoloaderInit873a628d2476a3c46b6fb72854801612');
 }
 
-// Functions whitelisting. For more information see:
-// https://github.com/humbug/php-scoper/blob/master/README.md#functions-whitelisting
+// Exposed functions. For more information see:
+// https://github.com/humbug/php-scoper/blob/master/docs/configuration.md#exposing-functions
 if (!function_exists('load_tgm_plugin_activation')) {
     function load_tgm_plugin_activation() {
         return \CUMULUS\Wordpress\AppendPages\load_tgm_plugin_activation(...func_get_args());
@@ -51,11 +51,6 @@ if (!function_exists('tgmpa_load_bulk_installer')) {
 if (!function_exists('my_theme_register_required_plugins')) {
     function my_theme_register_required_plugins() {
         return \CUMULUS\Wordpress\AppendPages\my_theme_register_required_plugins(...func_get_args());
-    }
-}
-if (!function_exists('composerRequire873a628d2476a3c46b6fb72854801612')) {
-    function composerRequire873a628d2476a3c46b6fb72854801612() {
-        return \CUMULUS\Wordpress\AppendPages\composerRequire873a628d2476a3c46b6fb72854801612(...func_get_args());
     }
 }
 
